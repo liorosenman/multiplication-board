@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Cell Table</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="tableContainer"></div>
+
+    <script>
+        function createTable(rows, cols) {
+            var table = document.createElement('table');
+            for (var i = 0; i < rows; i++) {
+                var tr = table.insertRow();
+                for (var j = 0; j < cols; j++) {
+                    var td = tr.insertCell();
+                    td.appendChild(document.createTextNode(`Row ${i+1} Col ${j+1}`));
+                }
+            }
+            return table;
+        }
+
+        document.getElementById('tableContainer').appendChild(createTable(10, 10));
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tableContainer"></div>
+    <script>
+        function createMultiplicationBoard() {
+            var table = document.createElement('table');
+            for (var i = 1; i <= 10; i++) {
+                var tr = table.insertRow();
+                const red = getRandomRgbNumber();
+                const green = getRandomRgbNumber();
+                const blue = getRandomRgbNumber();
+                tr.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                for (var j = 1; j <= 10; j++){
+                    var td = tr.insertCell();                 
+                    var m = i * j;
+                    td.appendChild(document.createTextNode(`${m}`));
+                }
+            }
+
+            return table;
+        }
+
+        function getRandomRgbNumber() {
+            return Math.floor(Math.random() * 255);
+        }
+
+        document.getElementById('tableContainer').appendChild(createMultiplicationBoard());
+    </script>
+</body>
+
+</html>
